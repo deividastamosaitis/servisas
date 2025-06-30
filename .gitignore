@@ -1,0 +1,22 @@
+# Bendrai ignoruojami failai
+node_modules
+uploads
+.env
+.DS_Store
+
+# Frontend
+client/node_modules
+client/build
+client/dist
+client/.env
+
+# Backend
+server/node_modules
+server/build
+server/dist
+server/.env
+
+# IDE/OS šiukšlės
+.vscode/
+.idea/
+Thumbs.db
