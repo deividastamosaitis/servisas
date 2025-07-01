@@ -17,9 +17,7 @@ const RmaStatusCheck = () => {
     }
 
     try {
-      const res = await axios.get(
-        `http://localhost:5001/api/rma/status/${rma.trim()}`
-      );
+      const res = await axios.get(`/api/rma/status/${rma.trim()}`);
       setStatusInfo(res.data);
     } catch (err) {
       setError("RMA kodas nerastas arba įvyko klaida.");

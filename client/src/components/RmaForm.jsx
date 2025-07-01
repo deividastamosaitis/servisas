@@ -51,15 +51,11 @@ const RmaForm = () => {
         formData.append("files", file);
       });
 
-      const res = await axios.post(
-        "http://localhost:5001/api/rma/register",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const res = await axios.post("/api/rma/register", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       setSuccessMessage(
         `✅ Registracija sėkminga! Jūsų RMA kodas: ${res.data.rmaCode}`

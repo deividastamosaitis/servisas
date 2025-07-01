@@ -10,9 +10,7 @@ const RmaStatusPage = () => {
   useEffect(() => {
     const fetchStatus = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:5001/api/rma/status/${rma}`
-        );
+        const res = await axios.get(`/api/rma/status/${rma}`);
         setStatusInfo(res.data);
       } catch (err) {
         setError("RMA kodas nerastas arba įvyko klaida.");
