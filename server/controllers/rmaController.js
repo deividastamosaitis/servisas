@@ -32,8 +32,10 @@ export const registerRma = async (req, res) => {
 
     await sendEmail({
       to: client.email,
-      subject: `✅ Jūsų RMA kodas: ${rmaCode}`,
       rmaCode,
+      status: "Registruota",
+      product,
+      problemDescription,
     });
 
     res.status(201).json({ rmaCode });
