@@ -46,7 +46,7 @@ const ServiceTicketSchema = new mongoose.Schema({
       "Prekė išsiųsta klientui",
       "Uždaryta",
     ],
-    default: "Naujas",
+    default: "Užregistruota",
   },
   attachments: [String],
 });
