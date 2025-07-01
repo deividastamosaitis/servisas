@@ -43,18 +43,12 @@ const RmaForm = () => {
         problemDescription: form.problemDescription,
       };
 
-      // Sukuriam FormData objektą
       const formData = new FormData();
       formData.append("data", JSON.stringify(payload));
-
-      files.forEach((file) => {
-        formData.append("files", file);
-      });
+      files.forEach((file) => formData.append("files", file));
 
       const res = await axios.post("/api/rma/register", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
+        headers: { "Content-Type": "multipart/form-data" },
       });
 
       setSuccessMessage(
@@ -97,13 +91,14 @@ const RmaForm = () => {
             value={form["product.category"] || ""}
             onChange={handleChange}
             required
-            className="p-2 border rounded-md"
+            className="w-full p-2 border rounded-md"
           >
             <option value="">Pasirinkite prekės grupę</option>
             <option value="Robotas">Vejos robotas</option>
             <option value="Kamera">Kamera</option>
             <option value="Registratorius">Registratorius</option>
             <option value="Radaras">Radaro detektorius</option>
+            <option value="Kita">Kita</option>
           </select>
 
           <input
@@ -112,7 +107,7 @@ const RmaForm = () => {
             value={form["product.brand"] || ""}
             onChange={handleChange}
             required
-            className="p-2 border rounded-md"
+            className="w-full p-2 border rounded-md"
           />
           <input
             name="product.model"
@@ -120,7 +115,7 @@ const RmaForm = () => {
             value={form["product.model"] || ""}
             onChange={handleChange}
             required
-            className="p-2 border rounded-md"
+            className="w-full p-2 border rounded-md"
           />
           <input
             name="product.serialNumber"
@@ -128,7 +123,7 @@ const RmaForm = () => {
             value={form["product.serialNumber"] || ""}
             onChange={handleChange}
             required
-            className="p-2 border rounded-md"
+            className="w-full p-2 border rounded-md"
           />
           <textarea
             name="problemDescription"
@@ -136,22 +131,24 @@ const RmaForm = () => {
             value={form.problemDescription || ""}
             onChange={handleChange}
             required
-            className="p-2 border rounded-md"
+            className="w-full p-2 border rounded-md"
           ></textarea>
+
           <input
             type="file"
             accept="image/*,video/*"
             multiple
             onChange={(e) => setFiles([...e.target.files])}
-            className="p-2 border rounded-md"
+            className="block w-full p-2 border rounded-md"
           />
+
           <input
             name="client.name"
             placeholder="Vardas, pavardė / įmonė"
             value={form["client.name"] || ""}
             onChange={handleChange}
             required
-            className="p-2 border rounded-md"
+            className="w-full p-2 border rounded-md"
           />
           <input
             name="client.phone"
@@ -159,7 +156,7 @@ const RmaForm = () => {
             value={form["client.phone"] || ""}
             onChange={handleChange}
             required
-            className="p-2 border rounded-md"
+            className="w-full p-2 border rounded-md"
           />
           <input
             name="client.email"
@@ -168,27 +165,29 @@ const RmaForm = () => {
             value={form["client.email"] || ""}
             onChange={handleChange}
             required
-            className="p-2 border rounded-md"
+            className="w-full p-2 border rounded-md"
           />
 
-          <label className="flex items-start gap-2 text-sm">
+          <label className="flex items-start gap-2 text-sm break-words">
             <input
               type="checkbox"
               checked={confirmedLabel}
               onChange={(e) => setConfirmedLabel(e.target.checked)}
               required
             />
-            <span>Įsipareigoju nurodyti gautą RMA kodą ant siuntos</span>
+            <span className="block">
+              Įsipareigoju nurodyti gautą RMA kodą ant siuntos
+            </span>
           </label>
 
-          <label className="flex items-start gap-2 text-sm">
+          <label className="flex items-start gap-2 text-sm break-words">
             <input
               type="checkbox"
               checked={acceptedTerms}
               onChange={(e) => setAcceptedTerms(e.target.checked)}
               required
             />
-            <span>
+            <span className="block">
               Sutinku su sąlygomis{" "}
               <button
                 type="button"
