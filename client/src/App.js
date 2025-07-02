@@ -4,6 +4,7 @@ import RmaForm from "./components/RmaForm";
 import RmaStatusCheck from "./components/RmaStatusCheck";
 import RmaStatusPage from "./pages/RmaStatusPage";
 import ServiceInfo from "./components/ServiceInfo";
+import DCKUpdate from "./pages/DCKUpdate";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             }
           />
           <Route path="/status/:rma" element={<RmaStatusPage />} />
+          <Route path="/dck-atnaujinimas" element={<DCKUpdate />} />
         </Routes>
 
         <footer className="mt-10 text-sm text-gray-500 text-center">
