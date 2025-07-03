@@ -97,8 +97,7 @@ const DCKUpdate = () => {
           </h2>
           <ul className="list-disc pl-5 text-gray-700 space-y-2 text-sm">
             <li>
-              USB atmintinė turi būti suformatuota <b>FAT32</b> arba{" "}
-              <b>exFAT</b> formatu.
+              USB atmintinė turi būti suformatuota <b>FAT32</b> formatu.
             </li>
             <li>
               Failo pervadinti nereikia – palikite pavadinimą
